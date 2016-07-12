@@ -1,0 +1,57 @@
+extends layout
+
+block content
+  h1=title
+  .signup
+    form(name='signup', action='/signup', method='post')
+      p Username
+      input(type='text', name="username")
+      p Sex 
+        select
+          option Male
+          option Female
+          option Other
+      p Looking for 
+        select
+          option Female
+          option Male
+          option Other
+      p Age
+      input(type='text', name='userAge')
+      p Birthdate
+        input(type='text', name='birthMonth', placeholder="MM")
+        input(type='text', name='birthDay', placeholder="DD")
+        input(type='text', name='birthYear', placeholder="YYYY")
+      p Country
+        select
+          option United States
+          option United States
+          option United States
+          option United States
+          option United States
+          option United States
+          option United States
+          option United States
+          option United States
+          option United States
+          option United States
+          option United States
+          option United States
+          option United States
+          option United States
+          option United States
+          option United States
+          option United States
+          option United States
+          option United States
+          option United States
+          option United States
+      p Zip Code
+      input(type='text', name='userZipcode', placeholder='e.g. 80304')
+      p Email
+      input(type='text', name='userEmail', placeholder='e.g. pickachu@pikapika.com')
+      input(type='text', name='userEmailConfirmation', placeholder='Confirm Email')
+      
+
+
+
