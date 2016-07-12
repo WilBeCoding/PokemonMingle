@@ -1,5 +1,31 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
+  .flex-container
+    .hero-img
+      h1 Poké Mingle
+      h2 Find a catch while you catch them all!
+      form(name='hero-form', action='/heroform', method='post')
+        p I am a 
+          select
+            option Male
+            option Female
+            option Other
+          |  looking for a
+          select
+            option Female
+            option Male
+            option Other
+    .landing-summary
+      .landing-description
+        img(src="../img/svg/mobilephone.svg")
+        p Bulbasaur Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ivysaur Lorem ipsum dolor sit amet, consectetur adipiscing elit. Venusaur Lorem ipsum dolor sit amet.
+      .landing-description
+        img(src="../img/svg/pokemon.svg")
+        p Bulbasaur Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ivysaur Lorem ipsum dolor sit amet, consectetur adipiscing elit. Venusaur Lorem ipsum dolor sit amet.
+      .landing-description
+        img(src="../img/svg/holding-hands.svg")
+        p Bulbasaur Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ivysaur Lorem ipsum dolor sit amet, consectetur adipiscing elit. Venusaur Lorem ipsum dolor sit amet.
+
+
+
