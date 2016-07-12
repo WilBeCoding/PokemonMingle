@@ -11,6 +11,7 @@ a {
   justify-content: flex-end;
   height: 5%;
   margin-right: 3%;
+  margin-top:1%;
 }
 
 .hero-img h1 {
@@ -90,11 +91,6 @@ hr {
     padding: 0;
 }
 
-h1, h2 {
-  margin-bottom: 1em;
-  border-bottom: 2px solid #eee;
-  line-height: 1.5;
-}
 
 h1 > small{
   color: #666;
