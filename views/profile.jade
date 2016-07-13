@@ -1,0 +1,51 @@
+extends layout
+
+block content
+  .container(style='padding-top: 60px;')
+        h1.page-header Edit Profile
+        .row
+          // left column
+          .col-md-4.col-sm-6.col-xs-12
+            .text-center
+              img.avatar.img-circle.img-thumbnail(src='http://lorempixel.com/200/200/people/9/', alt='avatar')
+              h6 Upload a different photo...
+              input.text-center.center-block.well.well-sm(type='file')
+          // edit form column
+          .col-md-8.col-sm-6.col-xs-12.personal-info
+            .alert.alert-info.alert-dismissable
+              a.panel-close.close(data-dismiss='alert') ×
+              i.fa.fa-coffee
+              |         This is an 
+              strong .alert
+              | . Use this to show important messages to the user.
+            h3 Team
+              p Insert team image
+            h3 Pokemon: Insert the pokemon they chose to represent them here
+            h3 Personal info
+            form.form-horizontal(role='form')
+              .form-group
+                label.col-lg-3.control-label Self-Summary
+                .col-lg-8
+                  textarea.form-control(value='What is your story!?', type='text', rows='15')
+              .form-group
+                label.col-lg-3.control-label Email:
+                .col-lg-8
+                  input.form-control(value='janesemail@gmail.com', type='text')
+              .form-group
+                label.col-lg-3.control-label Confirm Email:
+                .col-lg-8
+                  input.form-control(value='janesemail@gmail.com', type='text')
+              .form-group
+                label.col-md-3.control-label Password:
+                .col-md-8
+                  input.form-control(value='11111122333', type='password')
+              .form-group
+                label.col-md-3.control-label Confirm password:
+                .col-md-8
+                  input.form-control(value='11111122333', type='password')
+              .form-group
+                label.col-md-3.control-label
+                .col-md-8
+                  input.btn.btn-primary(value='Save Changes', type='button')
+                  span
+                  input.btn.btn-default(value='Cancel', type='reset')

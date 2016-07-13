@@ -176,3 +176,20 @@ a.btn,.btn {
 .landing-description p {
   font-size: 24px;
 }
+
+
+/*Sign Up Page*/
+
+.signup {
+  margin: 10px;
+}
+
+.title {
+  margin:10px;
+  text-align: center;
+}
+
+form {
+  height:10px;
+}
+
