@@ -2,22 +2,21 @@ extends layout
 
 block content
   .flex-container
-    .hero-header
-      button.btn.btn-large.btn-green.btn-radius sign in
-    .hero-img
-      h1 Poké Mingle
-      h2 Find a catch while you catch them all!
-      form(name='hero-form', action='/heroform', method='post')
-        p I am a 
-          select
-            option Male
-            option Female
-            option Other
-          |  on team
-          select
-            option Instinct
-            option Mystic
-            option Valor
+    .hero-container
+      .hero-header
+        button.btn.btn-large.btn-green.btn-radius sign in
+      .hero-img
+        h1 Poké Mingle
+        h2 Find a catch while you catch them all!
+        form(action='/faction', method='post')
+          p I am on team 
+            select(name='userfaction').heroSelect
+              option Instinct
+              option Mystic
+              option Valor
+            |!
+          input(type="submit" value="Join").btn.btn-primary
+
     .landing-summary
       .landing-description
         img(src="../img/svg/mobilephone.svg")
