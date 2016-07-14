@@ -24,11 +24,11 @@ block content
         .alert.alert-info.alert-dismissable
           a.panel-close.close(data-dismiss='alert') ×
           i.fa.fa-coffee
-        form.form-horizontal(role='form')
+        form.form-horizontal(action='/profileview/' + users._id, method="POST")
           .form-group
             label.col-lg-3.control-label Self-Summary
             .col-lg-8
-              textarea.form-control(value='What is your story!?', type='text', rows='15')
+              textarea.form-control(value='What is your story!?', type='text', rows='15' name='summary')
           .form-group
             label.col-lg-3.control-label Email:
             .col-lg-8
@@ -48,6 +48,6 @@ block content
           .form-group
             label.col-md-3.control-label
             .col-md-8
-              input.btn.btn-primary(value='Save Changes', type='button')
+              input.btn.btn-primary(value='Save Changes', type='submit')
               span
               input.btn.btn-default(value='Cancel', type='reset')

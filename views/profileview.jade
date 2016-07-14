@@ -1,0 +1,32 @@
+extends layout
+
+block content
+  extends layout
+
+  block content
+    .container.signupPage
+      .title
+        h1.page-header #{users.username}'s Profile
+      .row
+        // left column
+        .col-md-6.col-sm-6.col-xs-12
+          .text-center
+            img.avatar.img-circle.img-thumbnail(src='http://lorempixel.com/200/200/people/9/', alt='avatar')
+        // edit form column
+        .col-md-6.col-sm-6.col-xs-12.portfolioSidebar
+          h2 Username -- #{users.username}
+          h2 Team -- #{users.faction}
+          h2 Spirit Pokemon -- Squirtle
+          h2 Age -- #{users.age}
+          h2 Height
+        .col-md-12.personal-info
+          h2 Personal Info
+        .col-md-10.col-sm-6.col-xs-12
+          .alert.alert-info.alert-dismissable
+            a.panel-close.close(data-dismiss='alert') ×
+            i.fa.fa-coffee
+          form.form-horizontal(action='/viewprofile/' + users._id)
+            .form-group
+              label.col-lg-3.control-label Self-Summary
+              .col-lg-8
+                p #{users.summary}

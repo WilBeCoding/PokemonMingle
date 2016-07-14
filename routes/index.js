@@ -27,14 +27,9 @@ router.get('/profile/:id', function(req,res,next){
 })
 
 router.post('/signup/:id', function(req, res, next){
-  console.log(req.params.id  +   " req params id in post /signup/:id")
-  // console.log(users + '    users in post /singup/:id')
   usersCollection.update({_id:req.params.id},{$set: {username: req.body.username, age: req.body.userage, sex: req.body.usersex, country: req.body.usercountry, zip: req.body.userzip, email: req.body.email, password: req.body.password}})
   console.log(req.params.id + ' post insert in /signup/:id')
-  // if(err) return console.err(err + '   error');
   res.redirect('/profile/' + req.params.id);
-  // console.log(users   + '   in post')
-  // console.log('Route D')
 })
 
 router.post('/faction', function(req,res,next){
@@ -48,6 +43,19 @@ router.post('/faction', function(req,res,next){
 router.get('/listings', function(req,res,next){
   usersCollection.find({}, function(err,users){
     res.render('listings', {title:'Poké Matches', users:users})
+  })
+})
+
+router.post('/profileview/:id', function(req,res,next){
+  console.log(req.body.summary +   ' req body')
+  usersCollection.update({_id:req.params.id}, {$set:{summary: req.body.summary}})
+  res.redirect('/profileview/' + req.params.id);
+})
+
+router.get('/profileview/:id', function(req,res,next){
+    console.log('get profileview route hits')
+  usersCollection.findOne({_id:req.params.id}, function(err, users){
+    res.render('profileview', {title: 'Profile', users:users})
   })
 })
 
