@@ -14,6 +14,12 @@ a {
   margin-top:1%;
 }
 
+.container .signupPage h1 {
+  margin:0 auto;
+
+}
+
+
 .hero-img h1 {
   font-family: "pocket_monkregular";
   font-size: 260px;
@@ -34,9 +40,6 @@ a {
 .flex-container {
   display:flex;
   flex-direction: column;
-  position: fixed;
-  height: 100%;
-  width:100%;
 }
 
 /*This select height did nothing
@@ -405,6 +408,15 @@ select#soflow-color {
   width:100px;
 }
 
+.container h1{
+
+}
+
 .hero-img form select {
   height:50px;
 }
+
+.container {
+  width: 100%;
+}
+
