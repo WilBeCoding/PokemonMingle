@@ -2,27 +2,25 @@ extends layout
 
 block content
   .flex-container
-    .title
-      h1=title
-    .signup
-      form.form-horizontal(action='signup' method="POST")
-        fieldset
-          // Form Name
-          legend Sign Up
+    .signupPage
+      .title
+        h1=title
+      .signup
+        form.form-horizontal(action='/signup/' + id, method="POST")
           // Text input
           .form-group
             label.col-md-4.control-label(for='username') Username
-            .col-md-8
+            .col-md-4
               input#username.form-control.input-md(name='username', type='text', placeholder='Choose a username', required='')
           // Text input
           .form-group
             label.col-md-4.control-label(for='userage') Age
-            .col-md-8
+            .col-md-4
               input#userage.form-control.input-md(name='userage', type='text', placeholder='Your age', required='')
           // Select Basic
           .form-group
             label.col-md-4.control-label(for='usersex') Sex
-            .col-md-8
+            .col-md-4
               select#usersex.form-control(name='usersex')
                 option(value='1') Male
                 option(value='2') Female
@@ -30,34 +28,34 @@ block content
           // Select Basic
           .form-group
             label.col-md-4.control-label(for='usercountry') Country
-            .col-md-8
+            .col-md-4
               select#usercountry.form-control(name='usercountry')
                 option(value='1') United States
                 option(value='2') Canada
           // Text input
           .form-group
             label.col-md-4.control-label(for='userzip') Zip Code
-            .col-md-8
+            .col-md-4
               input#userzip.form-control.input-md(name='userzip', type='text', placeholder='Zip code', required='')
           // Text input
           .form-group
             label.col-md-4.control-label(for='email') Email
-            .col-md-8
+            .col-md-4
               input#email.form-control.input-md(name='email', type='text', placeholder='Email Address', required='')
           // Text input
           .form-group
             label.col-md-4.control-label(for='emailconfirmation') Confirm Email
-            .col-md-8
+            .col-md-4
               input#emailconfirmation.form-control.input-md(name='emailconfirmation', type='text', placeholder='Confirm email address', required='')
           // Password input
           .form-group
             label.col-md-4.control-label(for='password') Password
-            .col-md-8
+            .col-md-4
               input#password.form-control.input-md(name='password', type='password', placeholder='Enter your password', required='')
           // Password input
           .form-group
             label.col-md-4.control-label(for='passwordconfirmation') Confirm Password
-            .col-md-8
+            .col-md-4
               input#passwordconfirmation.form-control.input-md(name='passwordconfirmation', type='password', placeholder='Confirm your password', required='')
           .buttonz
-            input(type='submit' value="submit") 
+            input(type='submit' value="submit").bttn.btn-ghost 

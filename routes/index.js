@@ -12,7 +12,8 @@ router.get('/', function(req, res, next) {
 router.get('/signup/:id', function(req, res, next) {
   usersCollection.findOne({}, function(err,users) {
   console.log(req.params.id,   '   taste it')
-  // console.log(req.params.id +   '    params')
+  id = req.params.id
+  console.log(id)
   res.render('signup', {title: 'Sign Up', users: users})
   })
 })
@@ -25,8 +26,10 @@ router.get('/profile', function(req,res,next){
   })
 })
 
-router.post('/signup', function(req, res, next){
+router.post('/signup/:id', function(req, res, next){
+  console.log(req.params.id  +   " req params id in post")
   usersCollection.insert({_id:req.params.id},{username: req.body.username, age: req.body.userage, sex: req.body.usersex, country: req.body.usercountry, zip: req.body.userzip, email: req.body.email, password: req.body.password})
+  console.log(req.params.id + ' post insert')
   res.redirect('/profile');
   // console.log(users   + '   in post')
   // console.log('Route D')

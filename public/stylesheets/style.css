@@ -34,6 +34,9 @@ a {
 .flex-container {
   display:flex;
   flex-direction: column;
+  position: fixed;
+  height: 100%;
+  width:100%;
 }
 
 /*This select height did nothing
@@ -42,6 +45,11 @@ select {
   height:50px;
 }
 */
+
+form{
+  margin: 0;
+}
+
 .hero-img {
   /*background-color:red;*/
   display: flex;
@@ -172,6 +180,10 @@ a.btn,.btn {
     padding: 1em;
 }
 
+.signupPage {
+  background-color: #42A5F5;
+}
+
 .bttn {
   display: inline-block;
   color: yellow;
@@ -188,6 +200,16 @@ a.btn,.btn {
     background: transparent;
 }
 
+.buttonz {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.buttonz input {
+  height:65px;
+  width: 350px;
+}
 
 .btn-ghost{
   :href => "htttp://laj.lv"
@@ -264,6 +286,12 @@ form {
 .her-img select{
   border: none;
 }*/
+
+.title h1 {
+  font-family: "pocket_monkregular";
+  font-size: 125px;
+  color: #EEFF41;
+}
 
 .hero-img select::-ms-expand {
     display: none;
@@ -358,6 +386,14 @@ select#soflow-color {
 
 .hero-container {
   background-color: #42A5F5;
+  height:100%;
+}
+
+.signupPage {
+  display:flex;
+  flex-direction: column;
+  background-color: #42A5F5;
+  height:100%;
 }
 
 .hero-submit {
