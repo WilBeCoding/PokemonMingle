@@ -6,22 +6,22 @@ block content
       h1.page-header Edit Profile
     .row
       // left column
-      .col-md-4.col-sm-6.col-xs-12
+      .col-md-6.col-sm-6.col-xs-12
         .text-center
           img.avatar.img-circle.img-thumbnail(src='http://lorempixel.com/200/200/people/9/', alt='avatar')
           h6 Upload a different photo...
           input.text-center.center-block.well.well-sm(type='file')
       // edit form column
-      .col-md-8.col-sm-6.col-xs-12.personal-info
+      .col-me-4.col-sm-6.col-xs-12.portfolioSidebar
+        h2 Team -- Show team in text and image. Think about this.
+        h2 Spirit Pokemon -- Squirtle
+        h2 Age
+        h2 Height
+        h2 Religion
+      .col-md-10.col-sm-6.col-xs-12.personal-info
         .alert.alert-info.alert-dismissable
           a.panel-close.close(data-dismiss='alert') ×
           i.fa.fa-coffee
-          |         This is an 
-          strong .alert
-          | . Use this to show important messages to the user.
-        h3 Team
-          p Insert team image
-        h3 What is your spirit poken?:: select menu of all pokemon 
         h3 Personal info
         form.form-horizontal(role='form')
           .form-group

@@ -295,6 +295,9 @@ form {
   font-size: 125px;
   color: #EEFF41;
 }
+.portfolioSidebar{
+  height: 41vh;
+}
 
 .hero-img select::-ms-expand {
     display: none;
