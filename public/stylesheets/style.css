@@ -166,6 +166,33 @@ a.btn,.btn {
   border-color: #3CB371;    
 }
 
+.hero-header .bttn {
+    min-width: 300px;
+    text-align: center;
+    padding: 1em;
+}
+
+.bttn {
+  display: inline-block;
+  color: yellow;
+  background-color: transparent;
+  border: 1px solid currentColor;
+  text-decoration: none;
+  padding: .8em 1.1em;
+  border-radius: 3px;
+  font-size: 18px;
+}
+
+.bttn:hover{
+    color: red;
+    background: transparent;
+}
+
+
+.btn-ghost{
+  :href => "htttp://laj.lv"
+}
+
 
 /*-------*/
 
@@ -173,6 +200,7 @@ a.btn,.btn {
   display:flex;
   flex-direction: column;
   width:25%;
+  text-align: center;
 }
 
 .landing-description p {
@@ -206,7 +234,7 @@ form {
 /* -------------------- Select Box Styles: bavotasan.com Method (with special adaptations by ericrasch.com) */
 /* -------------------- Source: http://bavotasan.com/2011/style-select-box-using-only-css/ */
 .styled-select {
-   background: url(http://i62.tinypic.com/15xvbd5.png) no-repeat 96% 0;
+   background-color: transparent;
    height: 29px;
    overflow: hidden;
    width: 240px;
@@ -222,8 +250,7 @@ form {
 }
 
 .styled-select.slate {
-   background: url(http://i62.tinypic.com/2e3ybe1.jpg) no-repeat right center;
-   height: 34px;
+   height: 84px;
    width: 240px;
 }
 
@@ -232,6 +259,14 @@ form {
    font-size: 16px;
    height: 34px;
    width: 268px;
+}
+/*
+.her-img select{
+  border: none;
+}*/
+
+.hero-img select::-ms-expand {
+    display: none;
 }
 
 /* -------------------- Rounded Corners */
@@ -248,7 +283,7 @@ form {
 }
 
 /* -------------------- Colors: Background */
-.slate   { background-color: #ddd; }
+.slate   { }
 .green   { background-color: #779126; }
 .blue    { background-color: #3b8ec2; }
 .yellow  { background-color: #eec111; }
@@ -313,7 +348,7 @@ select#soflow, select#soflow-color {
 
 select#soflow-color {
    color: #fff;
-   background-image: url(http://i62.tinypic.com/15xvbd5.png), -webkit-linear-gradient(#779126, #779126 40%, #779126);
+   /*background-image: url(http://i62.tinypic.com/15xvbd5.png), -webkit-linear-gradient(#779126, #779126 40%, #779126);*/
    background-color: #779126;
    -webkit-border-radius: 20px;
    -moz-border-radius: 20px;
@@ -323,4 +358,17 @@ select#soflow-color {
 
 .hero-container {
   background-color: #42A5F5;
+}
+
+.hero-submit {
+  text-align: center;
+}
+
+.hero-submit input {
+  height:50px;
+  width:100px;
+}
+
+.hero-img form select {
+  height:50px;
 }
