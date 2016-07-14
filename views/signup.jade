@@ -6,7 +6,7 @@ block content
       .title
         h1=title
       .signup
-        form.form-horizontal(action='/signup/' + id, method="POST")
+        form.form-horizontal(action='/signup/' + users._id, method="POST")
           // Text input
           .form-group
             label.col-md-4.control-label(for='username') Username

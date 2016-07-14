@@ -12,17 +12,18 @@ block content
           h6 Upload a different photo...
           input.text-center.center-block.well.well-sm(type='file')
       // edit form column
-      .col-me-4.col-sm-6.col-xs-12.portfolioSidebar
-        h2 Team -- Show team in text and image. Think about this.
+      .col-md-6.col-sm-6.col-xs-12.portfolioSidebar
+        h2 Username -- #{users.username}
+        h2 Team -- #{users.faction}
         h2 Spirit Pokemon -- Squirtle
-        h2 Age
+        h2 Age -- #{users.age}
         h2 Height
-        h2 Religion
-      .col-md-10.col-sm-6.col-xs-12.personal-info
+      .col-md-12.personal-info
+        h2 Personal Info
+      .col-md-10.col-sm-6.col-xs-12
         .alert.alert-info.alert-dismissable
           a.panel-close.close(data-dismiss='alert') ×
           i.fa.fa-coffee
-        h3 Personal info
         form.form-horizontal(role='form')
           .form-group
             label.col-lg-3.control-label Self-Summary

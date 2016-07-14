@@ -183,10 +183,6 @@ a.btn,.btn {
     padding: 1em;
 }
 
-.signupPage {
-  background-color: #42A5F5;
-}
-
 .bttn {
   display: inline-block;
   color: yellow;
@@ -356,6 +352,10 @@ form {
    background: #58B14C url("http://i62.tinypic.com/15xvbd5.png") no-repeat scroll 319px center;
 }
 
+.personal-info {
+  text-align: center;
+  border-top:2px solid black;
+}
 
 /* -------------------- Select Box Styles: stackoverflow.com Method */
 /* -------------------- Source: http://stackoverflow.com/a/5809186 */
@@ -399,11 +399,17 @@ select#soflow-color {
   display:flex;
   flex-direction: column;
   background-color: #42A5F5;
-  height:100%;
+  height:100vh;
 }
 
 .hero-submit {
   text-align: center;
+}
+
+.filter {
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
 }
 
 .hero-submit input {
@@ -413,6 +419,28 @@ select#soflow-color {
 
 .container h1{
 
+}
+
+
+.thumbnail {
+    position: relative;
+    padding: 0px;
+    margin-bottom: 20px;
+    border:0px;
+    
+}
+
+.thumbnail img {
+    width: 100%;
+}
+
+.equal, .equal > div[class*='col-'] {  
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    flex:1 0 auto;
 }
 
 .hero-img form select {
