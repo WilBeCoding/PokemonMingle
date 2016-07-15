@@ -208,6 +208,19 @@ a.btn,.btn {
 .buttonz input {
   height:65px;
   width: 350px;
+  text-align: center;
+  vertical-align: middle;
+  line-height: 0em;
+  font-size: 40px;
+}
+
+.buttonz button {
+    height:65px;
+    width: 350px;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 0em;
+    font-size: 40px;
 }
 
 .btn-ghost{
@@ -247,6 +260,20 @@ form {
   height:10px;
 }
 
+body.modal-open #wrap{
+    -webkit-filter: blur(7px);
+    -moz-filter: blur(15px);
+    -o-filter: blur(15px);
+    -ms-filter: blur(15px);
+    filter: blur(15px);
+}
+  
+.modal-backdrop {background: #f7f7f7;}
+
+.close {
+    font-size: 50px;
+    display:block;
+}
 
 /*Dropdown Codepen*/
 
@@ -272,7 +299,7 @@ form {
 
 .styled-select.slate {
    height: 84px;
-   width: 240px;
+   width: 270px;
 }
 
 .styled-select.slate select {
@@ -402,6 +429,9 @@ select#soflow-color {
   height:100vh;
 }
 
+html {
+  background-color: #42A5F5;
+}
 .hero-submit {
   text-align: center;
 }

@@ -4,6 +4,9 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var cookieSession = require('cookie-session');
+var bcrypt = require('bcryptjs');
+require('dotenv').load();
 
 
 var users = require('./routes/users');
@@ -21,6 +24,10 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
+app.use(cookieSession({
+  name: 'session',
+  keys: ['51e85cb803', 'b1fd9f4d97', '00fba068be']
+}))
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);

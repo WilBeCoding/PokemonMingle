@@ -1,4 +1,5 @@
 var express = require('express');
+var bcrypt = require('bcryptjs');
 var router = express.Router();
 var db = require('monk')('localhost/pokemingle');
 var usersCollection = db.get('users');
@@ -6,16 +7,17 @@ var usersCollection = db.get('users');
 /* GET home page. */
 router.get('/', function(req, res, next) {
   // console.log('Route A')
-  res.render('index', { title: 'PokéMingle' });
+  res.render('index', { title: 'PokéMingle'});
 });
 
 router.get('/signup/:id', function(req, res, next) {
+  var userCookie = req.session.user
   console.log(req.params.id,   '   req.params in BEFORE /signup/:id')
   // console.log(ObjectId(req.params.id))
   usersCollection.findOne({_id: req.params.id}, function(err,users) {
   id = req.params.id
   console.log(users._id  +    '    users after assigning it req.params')
-  res.render('signup', {title: 'Sign Up', users: users})
+  res.render('signup', {title: 'Sign Up', users: users, userCookie:userCookie})
   })
 })
 
@@ -28,14 +30,15 @@ router.get('/profile/:id', function(req,res,next){
 
 router.post('/signup/:id', function(req, res, next){
   usersCollection.update({_id:req.params.id},{$set: {username: req.body.username, age: req.body.userage, sex: req.body.usersex, country: req.body.usercountry, zip: req.body.userzip, email: req.body.email, password: req.body.password}})
+  var userID = req.params.id
+  req.session.user = userID
+  console.log(req.session,   ' req.session')
   console.log(req.params.id + ' post insert in /signup/:id')
   res.redirect('/profile/' + req.params.id);
 })
 
 router.post('/faction', function(req,res,next){
-  // console.log('Route E')
   usersCollection.insert({faction: req.body.userfaction}, function(err, docsInserted){
-    console.log(docsInserted + '   docs inserted')
   res.redirect('/signup/' + docsInserted._id)
   })
 })
