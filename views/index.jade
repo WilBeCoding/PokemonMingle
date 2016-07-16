@@ -4,8 +4,28 @@ block content
   .flex-container
     .hero-container
       .hero-header
-        .buttonz
-          button.bttn.btn-ghost sign in
+        #wrap
+          // Button trigger modal
+          br
+          .buttonz
+            button.bttn.btn-ghost(data-toggle='modal', data-target='#myModal')
+              | Sign In
+      #myModal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='myModalLabel', aria-hidden='true')
+       .container
+         .row
+           .col-sm-6.col-sm-offset-3.text-center(style='margin-top: 10%;height:301px;border:10px solid #f00000;background:#f0f0f0')
+              button.close(type='button', data-dismiss='modal', aria-label='Close') ×
+              br
+              br
+              form(action='/signin', method='post')
+                h1 Username: 
+                  input(type='text' value='').loginInput
+                h1 Password: 
+                  input(type='text' value='').loginInput
+                h4
+                hr
+                input(type="submit" value="Sign In" style="height: 55px; width: 98px").btn.btn-primary
+
       .hero-img
         h1 Poké Mingle
         h2 Find a catch while you catch them all!

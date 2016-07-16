@@ -6,6 +6,7 @@ var usersCollection = db.get('users');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
+  // console.log(sessions ,  '   sessions in / get');
   // console.log('Route A')
   res.render('index', { title: 'PokéMingle'});
 });
@@ -19,6 +20,10 @@ router.get('/signup/:id', function(req, res, next) {
   console.log(users._id  +    '    users after assigning it req.params')
   res.render('signup', {title: 'Sign Up', users: users, userCookie:userCookie})
   })
+})
+
+router.post('/signin', function(req, res, next){
+  res.redirect('listings')
 })
 
 router.get('/profile/:id', function(req,res,next){
@@ -43,7 +48,7 @@ router.post('/faction', function(req,res,next){
   })
 })
 
-router.get('/listings', function(req,res,next){
+router.get('/listings/:id', function(req,res,next){
   usersCollection.find({}, function(err,users){
     res.render('listings', {title:'Poké Matches', users:users})
   })

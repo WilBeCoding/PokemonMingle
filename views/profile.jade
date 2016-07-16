@@ -21,14 +21,12 @@ block content
       .col-md-12.personal-info
         h2 Personal Info
       .col-md-10.col-sm-6.col-xs-12
-        .alert.alert-info.alert-dismissable
-          a.panel-close.close(data-dismiss='alert') ×
           i.fa.fa-coffee
         form.form-horizontal(action='/profileview/' + users._id, method="POST")
           .form-group
             label.col-lg-3.control-label Self-Summary
             .col-lg-8
-              textarea.form-control(value='What is your story!?', type='text', rows='15' name='summary')
+              textarea(value='What is your story!?', type='text', rows='15', name='summary')
           .form-group
             label.col-lg-3.control-label Email:
             .col-lg-8

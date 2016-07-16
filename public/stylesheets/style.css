@@ -125,10 +125,19 @@ button::-moz-focus-inner {
   border: 0;
   padding: 0;
 }
+
+#myModal form h1 {
+  font-weight: bold;
+}
+
 btn-radius
 input[type="submit"].btn,
 button.btn {
   cursor: pointer;
+}
+
+.col-lg-8 textarea {
+  width: 100%;
 }
 
 a.btn,.btn {
@@ -260,12 +269,27 @@ form {
   height:10px;
 }
 
-body.modal-open #wrap{
-    -webkit-filter: blur(7px);
-    -moz-filter: blur(15px);
-    -o-filter: blur(15px);
-    -ms-filter: blur(15px);
-    filter: blur(15px);
+.loginInput {
+  background: transparent;
+  border-top: transparent !important;
+  border-left: transparent !important;
+  border-right: transparent !important;
+  border-bottom: 1px solid black !important;
+  font-weight: 200;
+  padding-left: 0;
+}
+
+.loginInput{
+  outline-width: 0;
+  font-color: black
+}
+
+.modal-open #wrap{
+    -webkit-filter: blur(2px);
+    -moz-filter: blur(5px);
+    -o-filter: blur(5px);
+    -ms-filter: blur(5px);
+    filter: blur(5px);
 }
   
 .modal-backdrop {background: #f7f7f7;}
@@ -480,4 +504,9 @@ html {
 .container {
   width: 100%;
 }
+
+#myModal .container {
+  width:;
+}
+
 
