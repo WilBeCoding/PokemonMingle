@@ -3,6 +3,9 @@ extends layout
 block content
   .container
     .flex-container
+      if errors
+        for messages in errors
+          p=messages
       .hero-container
         .hero-header
           #wrap
@@ -20,9 +23,9 @@ block content
                 br
                 form(action='/signin', method='post')
                   h1 Username: 
-                    input(type='text' value='').loginInput
+                    input(type='text' value='' name='user_name').loginInput
                   h1 Password: 
-                    input(type='text' value='').loginInput
+                    input(type='text' value='' name='user_password').loginInput
                   h4
                   hr
                   input(type="submit" value="Sign In" style="height: 55px; width: 98px").btn.btn-primary

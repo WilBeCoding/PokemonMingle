@@ -2,6 +2,9 @@ extends layout
 
 block content
   .flex-container
+    if errors
+      for messages in errors
+        p=messages
     .signupPage
       .title
         h1=title

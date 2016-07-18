@@ -3,11 +3,11 @@ var path = require('path');
 var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
+var cookie = require('cookie');
 var bodyParser = require('body-parser');
 var cookieSession = require('cookie-session');
 var bcrypt = require('bcryptjs');
 require('dotenv').load();
-
 
 var users = require('./routes/users');
 var routes = require('./routes/index');
@@ -26,7 +26,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(cookieSession({
   name: 'session',
-  keys: ['51e85cb803', 'b1fd9f4d97', '00fba068be']
+  keys: [process.env.HASH_KEY1, process.env.HASH_KEY2, process.env.HASH_KEY3]
 }))
 app.use(express.static(path.join(__dirname, 'public')));
 
