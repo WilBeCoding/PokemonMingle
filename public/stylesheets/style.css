@@ -503,6 +503,7 @@ html {
 
 .container {
   width: 100%;
+  padding: 0;
 }
 
 #myModal .container {
@@ -539,5 +540,33 @@ and (max-device-width : 667px) {
 
   .hero-img h2 {
     font-size: 53;
+  }
+
+  .title h1 {
+    font-size: 250px;
+  }
+
+  .signup form {
+    font-size: 75px;
+  }
+
+  .signup form input{
+    height: 100px;
+    font-size: 40px;
+  }
+
+  .signupPage form input {
+    height: 100px;
+    font-size: 40px;
+  }
+
+  .signup form select{
+    height: 100px;
+    font-size: 40px;
+  }
+
+  .signup form .buttonz input {
+    height: 150px;
+    margin-bottom: 90px;
   }
 }
