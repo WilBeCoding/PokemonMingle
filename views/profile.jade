@@ -12,17 +12,36 @@ block content
           h6 Upload a different photo...
           input.text-center.center-block.well.well-sm(type='file')
       // edit form column
-      .col-md-6.col-sm-6.col-xs-12.portfolioSidebar
-        h2 Username -- #{users.username}
-        h2 Team -- #{users.faction}
-        h2 Spirit Pokemon -- Squirtle
-        h2 Age -- #{users.age}
-        h2 Height
-      .col-md-12.personal-info
-        h2 Personal Info
-      .col-md-10.col-sm-6.col-xs-12
-          i.fa.fa-coffee
-        form.form-horizontal(action='/profileview/' + users._id, method="POST")
+      form.form-horizontal(action='/profileview/' + users._id, method="POST")
+        .col-md-6.col-sm-6.col-xs-12.portfolioSidebar
+          h2 #{users.username}
+          h2 Team #{users.faction}
+          h2 Spirit Pokemon -- Squirtle
+          h2 #{users.age} years old
+          h2 Height
+            select
+              option 3
+              option 4
+              option 5
+              option 6
+              option 7
+            select 0
+              option 1
+              option 2
+              option 3
+              option 4
+              option 5
+              option 6
+              option 7
+              option 8
+              option 9
+              option 10
+
+
+        .col-md-12.personal-info
+          h2 Personal Info
+        .col-md-10.col-sm-6.col-xs-12
+            i.fa.fa-coffee
           .form-group
             label.col-lg-3.control-label Self-Summary
             .col-lg-8
