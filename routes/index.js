@@ -22,23 +22,42 @@ router.get('/signup/:id', function(req, res, next) {
   })
 })
 
-router.post('/signin', function(req, res, next){
+// router.post('/signin', function(req, res, next){
+//   var errors = [];
+//   usersCollection.findOne({username: req.body.user_name}, function(err, users){
+//     if(!users){
+//       console.log("email doesnt exist hits")
+//       errors.push("Username is not registered")
+//     }
+//     else if(users.password !== req.body.password) {
+//       errors.push("Your password is incorrect")
+//     }
+//     if(errors.length === 0) {
+//       req.session.username = req.body.user_name
+//       res.redirect('/profile/' + users._id)
+//     }
+//     res.render('index', {errors:errors})
+//   })
+// })
+
+router.post('/signin', function(req, res, next) {
   var errors = [];
+  console.log(JSON.stringify(req.body) + '   req body')
   usersCollection.findOne({username: req.body.user_name}, function(err, users){
-    if(!users){
-      console.log("email doesnt exist hits")
-      errors.push("Username is not registered")
+    if (!users){
+      errors.push("This username doesn't exist. Try signing up?");
+    } else if (!bcrypt.compareSync(req.body.user_password, users.password)) {
+      console.log(req.body.user_password)
+      console.log(users.password)
+      errors.push("Invalid password.");
     }
-    else if(users.password !== req.body.password) {
-      errors.push("Your password is incorrect")
-    }
-    if(errors.length === 0) {
+    if (errors.length==0){
       req.session.username = req.body.user_name
-      res.redirect('/profile/' + users._id)
+      res.redirect('/profile/' + users._id);
     }
-    res.render('index', {errors:errors})
-  })
-})
+    res.render('index', {errors: errors});
+  });
+});
 
 router.get('/profile/:id', function(req,res,next){
   usersCollection.findOne({_id: req.params.id}, function(err, users) {
@@ -46,15 +65,6 @@ router.get('/profile/:id', function(req,res,next){
   res.render('profile', { title: 'Profile', users: users});
   })
 })
-
-// router.post('/signup/:id', function(req, res, next){
-//   usersCollection.update({_id:req.params.id},{$set: {username: req.body.username, age: req.body.userage, sex: req.body.usersex, country: req.body.usercountry, zip: req.body.userzip, email: req.body.email, password: req.body.password}})
-//   var userID = req.params.id
-//   req.session.user = userID
-//   console.log(req.session,   ' req.session')
-//   console.log(req.params.id + ' post insert in /signup/:id')
-//   res.redirect('/profile/' + req.params.id);
-// })
 
 router.post('/signup/:id', function(req, res, next) {
   var errors = [];
@@ -83,7 +93,7 @@ router.post('/signup/:id', function(req, res, next) {
     if (errors.length==0){
       var password = bcrypt.hashSync(req.body.password, 11);
       var email = req.body.email.toLowerCase();
-      usersCollection.update({_id:req.params.id},{$set: {username: req.body.username, age: req.body.userage, sex: req.body.usersex, country: req.body.usercountry, zip: req.body.userzip, email: req.body.email, password: password}})
+      usersCollection.update({_id:req.params.id},{$set: {username: req.body.username, age: req.body.userage, sex: req.body.usersex, country: req.body.usercountry, zip: req.body.userzip, email: email, password: password}})
       var userID = req.params.id
       req.session.user = userID
       res.redirect('/profile/' + req.params.id);
