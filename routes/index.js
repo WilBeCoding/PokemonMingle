@@ -98,7 +98,7 @@ router.post('/signup/:id', function(req, res, next) {
       req.session.user = userID
       res.redirect('/profile/' + req.params.id);
     }
-    res.render('signup', {errors:errors});
+    res.render('signup', {title: 'Sign Up', errors:errors, users:users});
   })
 });
 

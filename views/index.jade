@@ -3,9 +3,6 @@ extends layout
 block content
   .container
     .flex-container
-      if errors
-        for messages in errors
-          p=messages
       .hero-container
         .hero-header
           #wrap
@@ -14,6 +11,10 @@ block content
             .buttonz
               button.bttn.btn-ghost(data-toggle='modal', data-target='#myModal')
                 | Sign In
+            .errors
+              if errors
+                for messages in errors
+                  p=messages
         #myModal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='myModalLabel', aria-hidden='true')
          .container
            .row

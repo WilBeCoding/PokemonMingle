@@ -236,6 +236,13 @@ a.btn,.btn {
   :href => "htttp://laj.lv"
 }
 
+.profileSelectDropdown {
+  background-color: transparent;
+  height: 39px;
+  overflow: hidden;
+  border: none;
+}
+
 
 /*-------*/
 
@@ -504,6 +511,20 @@ html {
 .container {
   width: 100%;
   padding: 0;
+}
+.errors p{
+  font-weight:bold;
+  font-size: 20px;
+}
+
+.signup .errors {
+  text-align: center;
+  margin: 30px;
+}
+
+.errors {
+  color:red;
+  margin:2px;
 }
 
 #myModal .container {

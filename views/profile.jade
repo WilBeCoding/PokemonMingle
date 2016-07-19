@@ -19,13 +19,15 @@ block content
           h2 Spirit Pokemon -- Squirtle
           h2 #{users.age} years old
           h2 Height
-            select
+            select.profileSelectDropdown
               option 3
               option 4
               option 5
               option 6
               option 7
-            select 0
+            span feet
+            select.profileSelectDropdown
+              option 0 
               option 1
               option 2
               option 3
@@ -36,8 +38,7 @@ block content
               option 8
               option 9
               option 10
-
-
+            span inches
         .col-md-12.personal-info
           h2 Personal Info
         .col-md-10.col-sm-6.col-xs-12

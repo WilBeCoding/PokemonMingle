@@ -2,9 +2,6 @@ extends layout
 
 block content
   .flex-container
-    if errors
-      for messages in errors
-        p=messages
     .signupPage
       .title
         h1=title
@@ -61,4 +58,8 @@ block content
             .col-md-4
               input#passwordconfirmation.form-control.input-md(name='passwordconfirmation', type='password', placeholder='Confirm your password', required='')
           .buttonz
-            input(type='submit' value="submit").bttn.btn-ghost 
+            input(type='submit' value="submit").bttn.btn-ghost
+          .errors
+            if errors
+              for messages in errors
+                p=messages
