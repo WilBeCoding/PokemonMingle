@@ -1,7 +1,7 @@
 var bcrypt = require('bcryptjs');
 var express = require('express');
 var router = express.Router();
-var db = require('monk')(process.env.MONGOLAB_URI || 'localhost/pokemingle');
+var db = require('monk')(process.env.MONGODB_URI || 'localhost/pokemingle');
 var usersCollection = db.get('users');
 
 
