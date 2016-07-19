@@ -1,8 +1,9 @@
 var bcrypt = require('bcryptjs');
 var express = require('express');
 var router = express.Router();
-var db = require('monk')('localhost/pokemingle');
+var db = require('monk')(process.env.MONGOLAB_URI || 'localhost/pokemingle');
 var usersCollection = db.get('users');
+
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -13,11 +14,9 @@ router.get('/', function(req, res, next) {
 
 router.get('/signup/:id', function(req, res, next) {
   var userCookie = req.session.user
-  console.log(req.params.id,   '   req.params in BEFORE /signup/:id')
-  // console.log(ObjectId(req.params.id))
+  var pokemonJSON
   usersCollection.findOne({_id: req.params.id}, function(err,users) {
   id = req.params.id
-  console.log(users._id  +    '    users after assigning it req.params')
   res.render('signup', {title: 'Sign Up', users: users, userCookie:userCookie})
   })
 })
