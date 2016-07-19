@@ -41,33 +41,36 @@ block content
             span inches
         .col-md-12.personal-info
           h2 Personal Info
-        .col-md-10.col-sm-6.col-xs-12
-            i.fa.fa-coffee
-          .form-group
-            label.col-lg-3.control-label Self-Summary
-            .col-lg-8
-              textarea(value='What is your story!?', type='text', rows='15', name='summary')
-          .form-group
-            label.col-lg-3.control-label Email:
-            .col-lg-8
-              input.form-control(value='#{users.email}', type='text')
-          .form-group
-            label.col-lg-3.control-label Confirm Email:
-            .col-lg-8
-              input.form-control(value='', type='text')
-          .form-group
-            label.col-md-3.control-label Password:
-            .col-md-8
-              input.form-control(value='', type='password')
-          .form-group
-            label.col-md-3.control-label Confirm password:
-            .col-md-8
-              input.form-control(value='', type='password')
-          .form-group
-            label.col-md-3.control-label
-            .col-md-8
-              input.btn.btn-primary(value='Save Changes', type='submit')
-              span
-              input.btn.btn-default(value='Cancel', type='reset')
-              a(href='/delete/' + users._id) Delete your account
+        .personalForms
+          .col-md-2
+          .col-md-8
+              i.fa.fa-coffee
+            .form-group
+              label.col-lg-3.control-label Self-Summary
+              .col-lg-8
+                textarea(value='What is your story!?', type='text', rows='15', name='summary')
+            .form-group
+              label.col-lg-3.control-label Email:
+              .col-lg-8
+                input.form-control(value='#{users.email}', type='text')
+            .form-group
+              label.col-lg-3.control-label Confirm Email:
+              .col-lg-8
+                input.form-control(value='', type='text')
+            .form-group
+              label.col-md-3.control-label Password:
+              .col-md-8
+                input.form-control(value='', type='password')
+            .form-group
+              label.col-md-3.control-label Confirm password:
+              .col-md-8
+                input.form-control(value='', type='password')
+            .form-group
+              label.col-md-3.control-label
+              .col-md-8
+                input.btn.btn-primary(value='Save Changes', type='submit')
+                span
+                input.btn.btn-default(value='Cancel', type='reset')
+                a(href='/delete/' + users._id) Delete your account
+          .col-md-2
 
