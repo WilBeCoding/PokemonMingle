@@ -15,8 +15,8 @@ block content
       form.form-horizontal(action='/profileview/' + users._id, method="POST")
         .col-md-6.col-sm-6.col-xs-12.portfolioSidebar
           h2 #{users.username}
-          h2 Team #{users.faction}
-          h2 Spirit Pokemon -- Squirtle
+          h2 Team: #{users.faction}
+          h2 Pokemon: Squirtle
           h2 #{users.age} years old
           h2 Height
             select.profileSelectDropdown

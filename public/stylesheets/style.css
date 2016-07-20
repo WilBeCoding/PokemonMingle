@@ -537,62 +537,158 @@ html {
 }
 
 @media only screen 
-and (min-device-width : 375px) 
-and (max-device-width : 667px) { 
+and (min-device-width : 320px) 
+and (max-device-width : 568px) { 
 
-  .hero-img {
-    text-align: center;
+    .hero-img {
+      text-align: center;
+    }
+
+    .flex-container{
+      height: 100vh;
+    }
+
+    .landing-summary{
+      height: 22%;
+    }
+
+    .hero-img form{
+      font-size:69px;
+    }
+
+    .hero-submit input{
+      height: 300px;
+      width: 642px;
+      margin-top: 90px;
+      font-size: 150px;
+      margin-left: 11%;
+    }
+
+    .hero-img h2 {
+      font-size: 53;
+    }
+
+    .title h1 {
+      font-size: 250px;
+    }
+
+    .signup form {
+      font-size: 75px;
+    }
+
+    .signup form input{
+      height: 100px;
+      font-size: 40px;
+    }
+
+    .signupPage form input {
+      height: 100px;
+      font-size: 40px;
+    }
+
+    .signup form select{
+      height: 100px;
+      font-size: 40px;
+    }
+
+    .signup form .buttonz input {
+      height: 150px;
+      margin-bottom: 90px;
   }
 
-  .flex-container{
-    height: 100vh;
+  .portfolioSidebar h2 {
+    font-size: 58px;
+    font-weight: bold;
   }
 
-  .landing-summary{
-    height: 22%;
+  .control-label label {
+    font-size: 90px;
   }
 
-  .hero-img form{
-    font-size:69px;
+  .personalForms {
+    margin: 5%;
   }
 
-  .hero-submit input{
-    height: 300px;
-    width: 642px;
-    margin-top: 90px;
-    font-size: 150px;
-    margin-left: 11%;
+  .personal-info h2{
+    font-size: 120px;
+    font-weight: bold;
+  }
+  
+  .form-horizontal .control-label {
+    padding-top: 7px;
+    margin-bottom: 0;
+    text-align: right;
+    font-size: 70px;
+    font-weight: bold;
   }
 
-  .hero-img h2 {
-    font-size: 53;
+  .form-horizontal .form-group {
+      margin-right: -15px;
+      margin-left: -15px;
+      text-align: center;
   }
-
-  .title h1 {
-    font-size: 250px;
+  .form-horizontal .form-group p {
+    font-size: 60px;
   }
+}
 
-  .signup form {
-    font-size: 75px;
-  }
+  @media only screen 
+  and (min-device-width : 375px) 
+  and (max-device-width : 667px) { 
 
-  .signup form input{
-    height: 100px;
-    font-size: 40px;
-  }
+    .hero-img {
+      text-align: center;
+    }
 
-  .signupPage form input {
-    height: 100px;
-    font-size: 40px;
-  }
+    .flex-container{
+      height: 100vh;
+    }
 
-  .signup form select{
-    height: 100px;
-    font-size: 40px;
-  }
+    .landing-summary{
+      height: 22%;
+    }
 
-  .signup form .buttonz input {
-    height: 150px;
-    margin-bottom: 90px;
+    .hero-img form{
+      font-size:69px;
+    }
+
+    .hero-submit input{
+      height: 300px;
+      width: 642px;
+      margin-top: 90px;
+      font-size: 150px;
+      margin-left: 11%;
+    }
+
+    .hero-img h2 {
+      font-size: 53;
+    }
+
+    .title h1 {
+      font-size: 250px;
+    }
+
+    .signup form {
+      font-size: 75px;
+    }
+
+    .signup form input{
+      height: 100px;
+      font-size: 40px;
+    }
+
+    .signupPage form input {
+      height: 100px;
+      font-size: 40px;
+    }
+
+    .signup form select{
+      height: 100px;
+      font-size: 40px;
+    }
+
+    .signup form .buttonz input {
+      height: 150px;
+      margin-bottom: 90px;
   }
 }
