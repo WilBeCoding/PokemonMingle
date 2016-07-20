@@ -1,7 +1,7 @@
 var bcrypt = require('bcryptjs');
 var express = require('express');
 var router = express.Router();
-var db = require('monk')('localhost/pokemingle');
+var db = require('monk')(process.env.MONGODB_URI);
 var usersCollection = db.get('users');
 
 
@@ -20,6 +20,24 @@ router.get('/signup/:id', function(req, res, next) {
   res.render('signup', {title: 'Sign Up', users: users, userCookie:userCookie})
   })
 })
+
+// router.post('/signin', function(req, res, next){
+//   var errors = [];
+//   usersCollection.findOne({username: req.body.user_name}, function(err, users){
+//     if(!users){
+//       console.log("email doesnt exist hits")
+//       errors.push("Username is not registered")
+//     }
+//     else if(users.password !== req.body.password) {
+//       errors.push("Your password is incorrect")
+//     }
+//     if(errors.length === 0) {
+//       req.session.username = req.body.user_name
+//       res.redirect('/profile/' + users._id)
+//     }
+//     res.render('index', {errors:errors})
+//   })
+// })
 
 router.post('/signin', function(req, res, next) {
   var errors = [];
