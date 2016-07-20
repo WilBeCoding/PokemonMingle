@@ -623,13 +623,35 @@ and (max-device-width : 568px) {
   }
 
   .form-horizontal .form-group {
-      margin-right: -15px;
-      margin-left: -15px;
-      text-align: center;
+    margin-right: -15px;
+    margin-left: -15px;
+    text-align: center;
   }
   .form-horizontal .form-group p {
     font-size: 60px;
   }
+
+  .signupPage form input {
+      height: 100px;
+      font-size: 40px;
+      width: 85%;
+      margin-left: 9%;
+  }
+
+  .signup form select {
+    height: 100px;
+    font-size: 40px;
+    width: 85%;
+    margin-left: 9%;
+  }
+
+  .buttonz {
+    width: 70%;
+    margin-top: 5%;
+    margin-left: 13%;
+  }
+
+
 }
 
   @media only screen 

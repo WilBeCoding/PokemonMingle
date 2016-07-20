@@ -1,7 +1,7 @@
 var bcrypt = require('bcryptjs');
 var express = require('express');
 var router = express.Router();
-var db = require('monk')(process.env.MONGODB_URI);
+var db = require('monk')('localhost/pokemingle');
 var usersCollection = db.get('users');
 
 
@@ -40,7 +40,6 @@ router.get('/signup/:id', function(req, res, next) {
 // })
 
 router.post('/signin', function(req, res, next) {
-  console.log(users + '    USERS YOU SNAGGLE')
   var errors = [];
   console.log(JSON.stringify(req.body) + '   req body')
   usersCollection.findOne({username: req.body.user_name}, function(err, users){
