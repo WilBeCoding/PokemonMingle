@@ -1,7 +1,7 @@
 var bcrypt = require('bcryptjs');
 var express = require('express');
 var router = express.Router();
-var db = require('monk')('localhost/pokemingle');
+var db = require('monk')(process.env.MONGODB_URI || 'localhost/pokemingle');
 var usersCollection = db.get('users');
 
 
@@ -60,7 +60,6 @@ router.post('/signin', function(req, res, next) {
 
 router.get('/profile/:id', function(req,res,next){
   usersCollection.findOne({_id: req.params.id}, function(err, users) {
-    console.log(users._id + '   Users on profile route')
   res.render('profile', { title: 'Profile', users: users});
   })
 })
