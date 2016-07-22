@@ -1,43 +1,24 @@
 var bcrypt = require('bcryptjs');
 var express = require('express');
 var router = express.Router();
-var db = require('monk')(process.env.MONGODB_URI);
+var db = require('monk')('localhost/pokemingle');
 var usersCollection = db.get('users');
+var Pokedex = require('pokedex-promise');
+var P = new Pokedex();
 
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  // console.log(sessions ,  '   sessions in / get');
-  // console.log('Route A')
   res.render('index', { title: 'PokéMingle'});
 });
 
 router.get('/signup/:id', function(req, res, next) {
   var userCookie = req.session.user
-  var pokemonJSON
   usersCollection.findOne({_id: req.params.id}, function(err,users) {
   id = req.params.id
   res.render('signup', {title: 'Sign Up', users: users, userCookie:userCookie})
   })
 })
-
-// router.post('/signin', function(req, res, next){
-//   var errors = [];
-//   usersCollection.findOne({username: req.body.user_name}, function(err, users){
-//     if(!users){
-//       console.log("email doesnt exist hits")
-//       errors.push("Username is not registered")
-//     }
-//     else if(users.password !== req.body.password) {
-//       errors.push("Your password is incorrect")
-//     }
-//     if(errors.length === 0) {
-//       req.session.username = req.body.user_name
-//       res.redirect('/profile/' + users._id)
-//     }
-//     res.render('index', {errors:errors})
-//   })
-// })
 
 router.post('/signin', function(req, res, next) {
   var errors = [];
@@ -58,9 +39,25 @@ router.post('/signin', function(req, res, next) {
   });
 });
 
+router.get('/poketest', function(req, res) {
+  P.getPokemonList
+    .then(function(response) {
+      res.json(response);
+    })
+    .catch(function(error) {
+      console.log('There was an ERROR: ', error);
+    });
+});
+
 router.get('/profile/:id', function(req,res,next){
+  console.log("general get route hits")
   usersCollection.findOne({_id: req.params.id}, function(err, users) {
-  res.render('profile', { title: 'Profile', users: users});
+    P.getPokemonList()
+      .then(function(response) {
+        var pokemon = response.pokemon;
+        console.log(pokemon)
+    res.render('profile', { title: 'Profile', users: users, pokemon:pokemon});
+    })
   })
 })
 
@@ -99,7 +96,6 @@ router.post('/signup/:id', function(req, res, next) {
     res.render('signup', {title: 'Sign Up', errors:errors, users:users});
   })
 });
-
 
 router.post('/faction', function(req,res,next){
   usersCollection.insert({faction: req.body.userfaction}, function(err, docsInserted){

@@ -19,6 +19,7 @@
     "mongodb": "^2.2.1",
     "monk": "^3.0.6",
     "morgan": "~1.6.1",
+    "pokedex-promise": "^1.0.3",
     "serve-favicon": "~2.3.0"
   }
 }

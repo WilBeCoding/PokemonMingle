@@ -19,6 +19,10 @@ a {
 
 }
 
+.profileSummary p {
+  font-size: 28px;
+}
+
 
 .hero-img h1 {
   font-family: "pocket_monkregular";
@@ -487,6 +491,9 @@ html {
 
 }
 
+.personal-info h2 {
+  font-size: 70px;
+}
 
 .thumbnail {
     position: relative;
