@@ -1,5 +1,6 @@
 var bcrypt = require('bcryptjs');
 var express = require('express');
+var cookieSession = require('cookie-session');
 var router = express.Router();
 var db = require('monk')('localhost/pokemingle');
 var usersCollection = db.get('users');
@@ -9,12 +10,18 @@ var P = new Pokedex();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
+  console.log(req.session)
+  if(req.session != null){
+    console.log("This hits")
+    res.redirect('/profile/' + req.session.user)
+  }
   res.render('index', { title: 'PokéMingle'});
 });
 
 router.get('/signup/:id', function(req, res, next) {
   var userCookie = req.session.user
   usersCollection.findOne({_id: req.params.id}, function(err,users) {
+    console.log(users._id)
   id = req.params.id
   res.render('signup', {title: 'Sign Up', users: users, userCookie:userCookie})
   })
@@ -62,6 +69,7 @@ router.get('/profile/:id', function(req,res,next){
 })
 
 router.post('/signup/:id', function(req, res, next) {
+  console.log("signup post hits")
   var errors = [];
   if (!req.body.email.trim()){
     errors.push("Email is required.");
@@ -86,6 +94,7 @@ router.post('/signup/:id', function(req, res, next) {
       errors.push("This email is already signed up. Try logging in?");
     }
     if (errors.length==0){
+      console.log("errors are zero  " +   users )
       var password = bcrypt.hashSync(req.body.password, 11);
       var email = req.body.email.toLowerCase();
       usersCollection.update({_id:req.params.id},{$set: {username: req.body.username, age: req.body.userage, sex: req.body.usersex, country: req.body.usercountry, zip: req.body.userzip, email: email, password: password}})
@@ -93,6 +102,8 @@ router.post('/signup/:id', function(req, res, next) {
       req.session.user = userID
       res.redirect('/profile/' + req.params.id);
     }
+    console.log(" there are errors")
+    console.log(users)
     res.render('signup', {title: 'Sign Up', errors:errors, users:users});
   })
 });
