@@ -10,8 +10,8 @@ var P = new Pokedex();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  console.log(req.session)
-  if(req.session != null){
+  console.log(req.session.length == 0)
+  if(req.session.length != 0){
     console.log("This hits")
     res.redirect('/profile/' + req.session.user)
   }
