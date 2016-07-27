@@ -1,4 +1,32 @@
 extends layout
 
 block content
-  .container
+
+    #wrapHeader
+        .navbar.navbar-default.navbar-fixed-top
+            .header-contain
+                .navbar-header
+                    button.navbar-toggle(type='button', data-toggle='collapse', data-target='.navbar-collapse')
+                        span.icon-bar
+                        span.icon-bar
+                        span.icon-bar
+                    a.navbar-brand(href='#') PokéMingle
+            .nav-right
+                .collapse.navbar-collapse
+                    ul.nav.navbar-nav
+                        li
+                            a(href='#about') Listings
+                        li.dropdown
+                            a.dropdown-toggle(href='#', data-toggle='dropdown')
+                                | Profile
+                                b.caret
+                            ul.dropdown-menu
+                                li
+                                    a(href='#') View
+                                li
+                                    a(href='#') Edit
+                        li
+                            a(href='#logout') Log Out
+    block content
+
+

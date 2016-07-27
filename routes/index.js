@@ -10,18 +10,15 @@ var P = new Pokedex();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  console.log(req.session.length == 0)
   if(req.session.length != 0){
-    console.log("This hits")
     res.redirect('/profile/' + req.session.user)
   }
   res.render('index', { title: 'PokéMingle'});
 });
-
+  
 router.get('/signup/:id', function(req, res, next) {
   var userCookie = req.session.user
   usersCollection.findOne({_id: req.params.id}, function(err,users) {
-    console.log(users._id)
   id = req.params.id
   res.render('signup', {title: 'Sign Up', users: users, userCookie:userCookie})
   })
@@ -29,13 +26,10 @@ router.get('/signup/:id', function(req, res, next) {
 
 router.post('/signin', function(req, res, next) {
   var errors = [];
-  console.log(JSON.stringify(req.body) + '   req body')
   usersCollection.findOne({username: req.body.user_name}, function(err, users){
     if (!users){
       errors.push("This username doesn't exist. Try signing up?");
     } else if (!bcrypt.compareSync(req.body.user_password, users.password)) {
-      console.log(req.body.user_password)
-      console.log(users.password)
       errors.push("Invalid password.");
     }
     if (errors.length==0){
@@ -52,24 +46,20 @@ router.get('/poketest', function(req, res) {
       res.json(response);
     })
     .catch(function(error) {
-      console.log('There was an ERROR: ', error);
     });
 });
 
 router.get('/profile/:id', function(req,res,next){
-  console.log("general get route hits")
   usersCollection.findOne({_id: req.params.id}, function(err, users) {
     P.getPokemonList()
       .then(function(response) {
         var pokemon = response.pokemon;
-        console.log(pokemon)
     res.render('profile', { title: 'Profile', users: users, pokemon:pokemon});
     })
   })
 })
 
 router.post('/signup/:id', function(req, res, next) {
-  console.log("signup post hits")
   var errors = [];
   if (!req.body.email.trim()){
     errors.push("Email is required.");
@@ -94,7 +84,6 @@ router.post('/signup/:id', function(req, res, next) {
       errors.push("This email is already signed up. Try logging in?");
     }
     if (errors.length==0){
-      console.log("errors are zero  " +   users )
       var password = bcrypt.hashSync(req.body.password, 11);
       var email = req.body.email.toLowerCase();
       usersCollection.update({_id:req.params.id},{$set: {username: req.body.username, age: req.body.userage, sex: req.body.usersex, country: req.body.usercountry, zip: req.body.userzip, email: email, password: password}})
@@ -102,8 +91,6 @@ router.post('/signup/:id', function(req, res, next) {
       req.session.user = userID
       res.redirect('/profile/' + req.params.id);
     }
-    console.log(" there are errors")
-    console.log(users)
     res.render('signup', {title: 'Sign Up', errors:errors, users:users});
   })
 });
@@ -121,20 +108,17 @@ router.get('/listings/:id', function(req,res,next){
 })
 
 router.post('/profileview/:id', function(req,res,next){
-  console.log(req.body.summary +   ' req body')
   usersCollection.update({_id:req.params.id}, {$set:{summary: req.body.summary}})
   res.redirect('/profileview/' + req.params.id);
 })
 
 router.get('/profileview/:id', function(req,res,next){
-    console.log('get profileview route hits')
   usersCollection.findOne({_id:req.params.id}, function(err, users){
     res.render('profileview', {title: 'Profile', users:users})
   })
 })
 
 router.get('/delete/:id', function(req,res,next) {
-  console.log('delete button hits')
   usersCollection.remove({_id:req.params.id}, function(err, users){
   res.redirect('/')
   })
